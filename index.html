@@ -3,14 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Timesheet Punch System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
-    <h1>Time Tracking</h1>
-    <button id="punchIn">Punch In</button>
-    <button id="punchOut">Punch Out</button>
-    <div id="timeDisplay"></div>
+    <div class="container">
+        <header>
+            <h1>⏱️ Punch Tracking System</h1>
+            <div class="header-info">
+                <div id="currentDate" class="current-date"></div>
+                <div id="clock" class="clock">00:00:00</div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Status Section -->
+            <section class="card status-section">
+                <div id="statusBox" class="status-box out">
+                    <div id="statusText">✓ Ready to Punch In</div>
+                </div>
+            </section>
+
+            <!-- Punch Controls -->
+            <section class="card punch-controls">
+                <h2>Punch Controls</h2>
+                <div class="button-group">
+                    <button id="punchInBtn" class="btn btn-in">
+                        <span class="btn-icon">→</span> Punch In
+                    </button>
+                    <button id="punchOutBtn" class="btn btn-out">
+                        <span class="btn-icon">←</span> Punch Out
+                    </button>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section class="card reports-section">
+                <h2>Download Reports</h2>
+                <div class="button-group">
+                    <button id="downloadCSVBtn" class="btn btn-csv">
+                        <span class="btn-icon">📊</span> CSV Report
+                    </button>
+                    <button id="downloadPDFBtn" class="btn btn-pdf">
+                        <span class="btn-icon">📄</span> PDF Report
+                    </button>
+                    <button id="clearAllBtn" class="btn btn-clear">
+                        <span class="btn-icon">🗑️</span> Clear Data
+                    </button>
+                </div>
+            </section>
+
+            <!-- Sessions History -->
+            <section class="card sessions-section">
+                <h2>Session History</h2>
+                <div id="sessionsContainer" class="sessions-container">
+                    <p class="empty-message">No sessions recorded yet</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>💾 All data is saved locally in your browser | No data is sent to servers</p>
+        </footer>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>
